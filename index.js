@@ -23,7 +23,7 @@ const managerQuestions = [
     },
     {
         message: 'What is the manager\'s office number?',
-        name: 'number',
+        name: 'phone',
     },
 ];
 
@@ -64,3 +64,20 @@ const internQuestions = [
         name: 'school',
     },
 ];
+
+const selectManager = ({ name, id, email, phone }) => {
+    const maanger = new Manager ( name, id, email, phone );
+    teamProfile.push(manager);
+}
+
+
+
+
+
+
+
+
+
+
+prompt(managerQuestions)
+ .then(selectManager)
