@@ -48,7 +48,7 @@ const engineerQuestions = [
 
 const internQuestions = [
     {
-        message:'What is the intern\'s name?',
+        message: 'What is the intern\'s name?',
         name: 'name',
     },
     {
@@ -56,7 +56,7 @@ const internQuestions = [
         name: 'id',
     },
     {
-        message:'What is the intern\'s email?',
+        message: 'What is the intern\'s email?',
         name: 'email',
     },
     {
@@ -66,10 +66,18 @@ const internQuestions = [
 ];
 
 const selectManager = ({ name, id, email, phone }) => {
-    const maanger = new Manager ( name, id, email, phone );
+    const manager = new Manager(name, id, email, phone);
     teamProfile.push(manager);
 }
 
+const memberType = () => {
+    return prompt ({
+        type: 'list',
+        message: 'Which type of team member would you like to add?',
+        choices: [ 'Engineer', 'Intern', 'Manager', ],
+        name: 'type'
+    })
+};
 
 
 
@@ -79,5 +87,7 @@ const selectManager = ({ name, id, email, phone }) => {
 
 
 
-prompt(managerQuestions)
- .then(selectManager)
+};
+
+    prompt(managerQuestions)
+        .then(selectManager)
