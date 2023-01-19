@@ -1,6 +1,8 @@
 const inquirer = rquire('inquirer');
 const fs = require('fs');
 
+const pageTemplate = require('./src/page-template');
+
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -79,15 +81,55 @@ const memberType = () => {
     })
 };
 
+const getMemberData = async ({ type }) => {
+switch(type) {
+    case 'Manager': {
+        const response = await prompt(managerQuestions);
+        const { name, id, email, phone } = response;
+        const manager = new Manager(name, id, email, phone);
+        teamProfile.push(manager);
+        break;
+    }
+    case 'Intern': {
+        const response = await prompt(internQuestions);
+        const { name, id, email, phone } = response;
+        const intern = new Intern(name, id, email, school);
+        teamProfile.push(intern);
+        break;
+    }
+    case 'Engineer': {
+        const response = await prompt(engineerQuestions);
+        const { name, id, email, phone } = response;
+        const engineer = new Engineer(name, id, email, gitHub);
+        teamProfile.push(engineer);
+        break;
+    }
+}
+};
 
+const confirmAdditionalMembers = () => {
+    return prompt({
+        message: 'Add additional team members?',
+        type: 'question',
+        name: 'additionalMembers',
+    })
+};
 
-
-
-
-
-
-
+const addAdditionalMembers = ({ addMore }) => {
+    if (addMore) {
+        employeeType()
+        .then(getMemberData)
+        .then(confirmAdditionalMembers)
+        .then(addAdditionalMembers);
+    } else {
+        const template = pageTemplate(teamProfile);
+        fs.writeFileSync('./dist/team.html', template);
+        process.exit(0);
+    }
 };
 
     prompt(managerQuestions)
         .then(selectManager)
+        .then(addAdditionalMembers)
+        .then(addAdditionalMembers);
+        
