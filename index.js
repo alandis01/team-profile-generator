@@ -1,5 +1,5 @@
-const inquirer = rquire('inquirer');
 const fs = require('fs');
+const inquirer = rquire('inquirer');
 
 const pageTemplate = require('./src/page-template');
 
@@ -92,14 +92,14 @@ switch(type) {
     }
     case 'Intern': {
         const response = await prompt(internQuestions);
-        const { name, id, email, phone } = response;
+        const { name, id, email, school } = response;
         const intern = new Intern(name, id, email, school);
         teamProfile.push(intern);
         break;
     }
     case 'Engineer': {
         const response = await prompt(engineerQuestions);
-        const { name, id, email, phone } = response;
+        const { name, id, email, gitHub } = response;
         const engineer = new Engineer(name, id, email, gitHub);
         teamProfile.push(engineer);
         break;
@@ -130,6 +130,6 @@ const addAdditionalMembers = ({ addMore }) => {
 
     prompt(managerQuestions)
         .then(selectManager)
-        .then(addAdditionalMembers)
+        .then(confirmAdditionalMembers)
         .then(addAdditionalMembers);
         
