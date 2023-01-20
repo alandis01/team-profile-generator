@@ -14,7 +14,7 @@ const generateTeamMembers = (team) => {
         </article>
         `
         }
-        if (member.getRole() === 'Manager') {
+        if (member.getRole() === 'Intern') {
             return `
         <article>
         <h2>${member.getRole()}</h2>
@@ -22,12 +22,12 @@ const generateTeamMembers = (team) => {
         <ul>
         <li>ID: ${member.getId()}</li>
         <li>Email: ${member.getEmail()}</li>
-        <li>Phone: <a href="#phone">${member.phone()}</a></li>
+        <li>Phone: <a href="#school">${member.school()}</a></li>
         </ul>
         </article>
         `
         }
-        if (member.getRole() === 'Manager') {
+        if (member.getRole() === 'Engineer') {
             return `
         <article>
         <h2>${member.getRole()}</h2>
@@ -35,12 +35,12 @@ const generateTeamMembers = (team) => {
         <ul>
         <li>ID: ${member.getId()}</li>
         <li>Email: ${member.getEmail()}</li>
-        <li>Phone: <a href="#phone">${member.phone()}</a></li>
+        <li>Phone: <a href="#github">${member.gitHub()}</a></li>
         </ul>
         </article>
         `
         }
-    })
+    }).join('');
 };
 
 
