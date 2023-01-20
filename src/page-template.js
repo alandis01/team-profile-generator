@@ -1,11 +1,51 @@
 // create the team
 const generateTeamMembers = (team) => {
-
+    return team.map(member => {
+        if (member.getRole() === 'Manager') {
+            return `
+        <article>
+        <h2>${member.getRole()}</h2>
+        <h3>${member.getName()}</h3>
+        <ul>
+        <li>ID: ${member.getId()}</li>
+        <li>Email: ${member.getEmail()}</li>
+        <li>Phone: <a href="#phone">${member.phone()}</a></li>
+        </ul>
+        </article>
+        `
+        }
+        if (member.getRole() === 'Manager') {
+            return `
+        <article>
+        <h2>${member.getRole()}</h2>
+        <h3>${member.getName()}</h3>
+        <ul>
+        <li>ID: ${member.getId()}</li>
+        <li>Email: ${member.getEmail()}</li>
+        <li>Phone: <a href="#phone">${member.phone()}</a></li>
+        </ul>
+        </article>
+        `
+        }
+        if (member.getRole() === 'Manager') {
+            return `
+        <article>
+        <h2>${member.getRole()}</h2>
+        <h3>${member.getName()}</h3>
+        <ul>
+        <li>ID: ${member.getId()}</li>
+        <li>Email: ${member.getEmail()}</li>
+        <li>Phone: <a href="#phone">${member.phone()}</a></li>
+        </ul>
+        </article>
+        `
+        }
+    })
 };
 
 
 module.exports = (team) => {
-return `
+    return `
 <!-- Instructor provided template -->
 <!DOCTYPE html>
 <html lang="en">
