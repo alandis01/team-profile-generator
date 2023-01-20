@@ -65,7 +65,7 @@ const confirmAdditionalMembers = () => {
 
 const addAdditionalMembers = ({ addMore }) => {
     if (addMore) {
-        employeeType()
+        memberType()
         .then(getMemberData)
         .then(confirmAdditionalMembers)
         .then(addAdditionalMembers);

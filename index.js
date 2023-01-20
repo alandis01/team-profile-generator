@@ -1,5 +1,5 @@
 const fs = require('fs');
-const inquirer = rquire('inquirer');
+const inquirer = require('inquirer');
 
 const pageTemplate = require('./src/page-template');
 
@@ -117,7 +117,7 @@ const confirmAdditionalMembers = () => {
 
 const addAdditionalMembers = ({ addMore }) => {
     if (addMore) {
-        employeeType()
+        memberType()
         .then(getMemberData)
         .then(confirmAdditionalMembers)
         .then(addAdditionalMembers);

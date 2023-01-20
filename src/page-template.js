@@ -1,4 +1,3 @@
-// create the team
 const generateTeamMembers = (team) => {
     return team.map(member => {
         if (member.getRole() === 'Manager') {
@@ -9,7 +8,7 @@ const generateTeamMembers = (team) => {
         <ul>
         <li>ID: ${member.getId()}</li>
         <li>Email: ${member.getEmail()}</li>
-        <li>Phone: <a href="#phone">${member.phone()}</a></li>
+        <li>Phone: <a href="#phone">${member.getPhone()}</a></li>
         </ul>
         </article>
         `
@@ -22,7 +21,7 @@ const generateTeamMembers = (team) => {
         <ul>
         <li>ID: ${member.getId()}</li>
         <li>Email: ${member.getEmail()}</li>
-        <li>Phone: <a href="#school">${member.school()}</a></li>
+        <li>Phone: <a href="#school">${member.getSchool()}</a></li>
         </ul>
         </article>
         `
@@ -35,7 +34,7 @@ const generateTeamMembers = (team) => {
         <ul>
         <li>ID: ${member.getId()}</li>
         <li>Email: ${member.getEmail()}</li>
-        <li>Phone: <a href="#github">${member.gitHub()}</a></li>
+        <li>Phone: <a href="#github">${member.getGitHub()}</a></li>
         </ul>
         </article>
         `
