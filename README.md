@@ -22,7 +22,6 @@ npm i install necessary dependencies
 npm run test used to run jest tests 
 
 ## Visuals 
-![Link to video walkthrough](./assets/Team%20Profile%20Generator%20.mp4)
 ![HTML Screenshot](./assets/Team%20Profile%20Generator%20Screenshot.png)
 
 ## License 
