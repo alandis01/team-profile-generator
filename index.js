@@ -68,6 +68,7 @@ const internQuestions = [
 ];
 
 const selectManager = ({ name, id, email, phone }) => {
+    console.log("manager")
     const manager = new Manager(name, id, email, phone);
     teamProfile.push(manager);
 }
@@ -110,13 +111,15 @@ switch(type) {
 const confirmAdditionalMembers = () => {
     return prompt({
         message: 'Add additional team members?',
-        type: 'question',
+        type: 'confirm',
         name: 'additionalMembers',
+        default: false
     })
 };
 
-const addAdditionalMembers = ({ addMore }) => {
-    if (addMore) {
+const addAdditionalMembers = ({additionalMembers}) => {
+
+    if (additionalMembers) {
         memberType()
         .then(getMemberData)
         .then(confirmAdditionalMembers)
@@ -124,6 +127,7 @@ const addAdditionalMembers = ({ addMore }) => {
     } else {
         const template = pageTemplate(teamProfile);
         fs.writeFileSync('./dist/team.html', template);
+        console.log("You file has been create in the 'dist' folder")
         process.exit(0);
     }
 };

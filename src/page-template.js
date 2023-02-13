@@ -34,7 +34,7 @@ const generateTeamMembers = (team) => {
         <ul>
         <li>ID: ${member.getId()}</li>
         <li>Email: ${member.getEmail()}</li>
-        <li>Phone: <a href="#github">${member.getGitHub()}</a></li>
+        <li>Phone: <a href="#github">${member.getGithub()}</a></li>
         </ul>
         </article>
         `
